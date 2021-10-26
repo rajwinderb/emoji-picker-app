@@ -1,38 +1,54 @@
 import { useState } from "react";
 
 export default function EmojiPicker(): JSX.Element {
-  const [previousEmoji, setPreviousEmoji] = useState<string>();
-  const [currentEmoji, setCurrentEmoji] = useState<string>();
+  const [previousEmojis, setPreviousEmojis] = useState<string[]>([]);
+  const [currentEmoji, setCurrentEmoji] = useState<string>("");
 
   const handleChangeToApple = () => {
-    setPreviousEmoji(currentEmoji);
+    if (currentEmoji !== "") {
+      setPreviousEmojis((previousEmojis) => [...previousEmojis, currentEmoji]);
+    }
+
     setCurrentEmoji("🍏");
   };
 
   const handleChangeToGrape = () => {
-    setPreviousEmoji(currentEmoji);
+    if (currentEmoji !== "") {
+      setPreviousEmojis((previousEmojis) => [...previousEmojis, currentEmoji]);
+    }
     setCurrentEmoji("🍇");
   };
 
   const handleChangeToPear = () => {
-    setPreviousEmoji(currentEmoji);
+    if (currentEmoji !== "") {
+      setPreviousEmojis((previousEmojis) => [...previousEmojis, currentEmoji]);
+    }
     setCurrentEmoji("🍐");
   };
 
   const handleChangeToCherry = () => {
-    setPreviousEmoji(currentEmoji);
+    if (currentEmoji !== "") {
+      setPreviousEmojis((previousEmojis) => [...previousEmojis, currentEmoji]);
+    }
     setCurrentEmoji("🍒");
   };
 
   const handleChangeToLemon = () => {
-    setPreviousEmoji(currentEmoji);
+    if (currentEmoji !== "") {
+      setPreviousEmojis((previousEmojis) => [...previousEmojis, currentEmoji]);
+    }
     setCurrentEmoji("🍋");
   };
 
   return (
     <>
       <h1>Emoji Picker</h1>
-      <p>Your previous emoji: {previousEmoji}</p>
+      <p>
+        Your previous emojis:{" "}
+        {previousEmojis.map((emoji, index) => (
+          <li key={index}>{emoji}</li>
+        ))}
+      </p>
       <p>Current emoji: {currentEmoji}</p>
       <hr />
       <button onClick={handleChangeToApple}>🍏</button>
