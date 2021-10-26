@@ -44,8 +44,8 @@ export default function EmojiPicker(): JSX.Element {
     <>
       <h1>Emoji Picker</h1>
       <p>
-        Your previous emojis:{" "}
-        {previousEmojis.map((emoji, index) => (
+        Your previous 5 emojis:{" "}
+        {previousEmojis.slice(-5).map((emoji, index) => (
           <li key={index}>{emoji}</li>
         ))}
       </p>
